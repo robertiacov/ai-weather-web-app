@@ -60,6 +60,15 @@ const CityPicker = () => {
         setSelectedCity(null);
     };
 
+    const handleSelectedState = (option: stateOption) => {
+        setSelectedState(option);
+    }
+
+    const handleSelectedCity = (option: cityOption) => {
+        setSelectedCity(option);
+        router.push(`/location/${option?.value?.latitude}/${option?.value?.longitude}`);
+    }
+
   return (
     <div className='space-y-4'>
         <div className='space-y-2'>
@@ -74,6 +83,63 @@ const CityPicker = () => {
                 options={options} 
             />
         </div>
+
+        {selectedCountry && (
+            <div className='space-y-2'>
+            <div className='flex items-center space-x-2 text-white/80'>
+                <GlobeIcon className='h-5 w-5 text-white'/>
+                <label htmlFor="country">State</label>
+            </div>
+            <Select
+                className='text-black'
+                value={selectedState}
+                onChange={handleSelectedState}
+                options={
+                    State.getStatesOfCountry(selectedCountry.value.isoCode)?.map(state => ({ 
+                        value: {
+                            latitude: state.latitude!,
+                            longitude: state.longitude!,
+                            countryCode: state.countryCode,
+                            name: state.name,
+                            isoCode: state.isoCode,
+                        },
+                        label: state.name,
+                    }))
+                }
+                
+            />
+        </div>
+        )
+        }
+
+        {selectedState && (
+            <div className='space-y-2'>
+            <div className='flex items-center space-x-2 text-white/80'>
+                <GlobeIcon className='h-5 w-5 text-white'/>
+                <label htmlFor="country">City</label>
+            </div>
+            <Select
+                className='text-black'
+                value={selectedCity}
+                onChange={handleSelectedCity}
+                options={
+                    City.getCitiesOfState(selectedState.value.countryCode, selectedState.value.isoCode)?.map(city => ({ 
+                        value: {
+                            latitude: city.latitude!,
+                            longitude: city.longitude!,
+                            countryCode: city.countryCode,
+                            name: city.name,
+                            stateCode: city.stateCode,
+                        },
+                        label: city.name,
+                    }))
+                }
+                />
+        </div>
+        )
+        }
+
+        
     </div>
   )
 }
