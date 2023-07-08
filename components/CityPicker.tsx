@@ -25,6 +25,17 @@ type cityOption = {
     label: string;
 } | null;
 
+type stateOption = {
+    value: {
+        latitude: string;
+        longitude: string;
+        countryCode: string;
+        isoCode: string;
+        name: string;
+    };
+    label: string;
+} | null;
+
 const options = Country.getAllCountries().map(country => ({
     value: {
         latitude: country.latitude,
@@ -36,7 +47,7 @@ const options = Country.getAllCountries().map(country => ({
 
 const CityPicker = () => {
     const [selectedCountry, setSelectedCountry] = useState<option>(null)
-    const [selectedState, setSelectedState] = useState<option>(null)
+    const [selectedState, setSelectedState] = useState<stateOption>(null)
     const [selectedCity, setSelectedCity] = useState<cityOption>(null)
   return (
     <div>
