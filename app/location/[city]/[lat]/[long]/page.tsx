@@ -1,6 +1,7 @@
 import React from 'react'
 import { getClient } from '@/apollo-client'
 import fetchWeatherQuery from '@/graphql/queries/fetchWeatherQueries';
+import CalloutCard from '@/components/CalloutCard';
 
 type Props = {
     params: {
@@ -42,11 +43,11 @@ async function WeatherPage({params: {city, lat, long}}: Props) {
                 </div>
 
             <div>
-
+                <CalloutCard 
+                    message='This is where GPT-4 Summary will go!'
+                />
             </div>
-            {/* CalloutCard */}
             </div>
-
         </div>
     </div>
   )
