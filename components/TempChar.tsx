@@ -20,7 +20,7 @@ const TempChar = ({results}: Props) => {
         "Temperature (C)": results.hourly.temperature_2m[i],
     }))
 
-    const dataFormatter = (number: number) => `${number} °C`
+    const dataFormatter = (number: number) => `${number}`
 
   return (
     <Card>
