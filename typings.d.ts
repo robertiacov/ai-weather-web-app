@@ -47,3 +47,19 @@ interface Hourly{
     uv_index_clear_sky: [number];
     windgusts_10m: [number];
 }
+
+interface HourlyUnits{
+    apparent_temperature: string;
+    precipitation: string;
+    precipitation_probability: string;
+    rain: string;
+    relativehumidity_2m: string;
+    showers: string;
+    snow_depth: string;
+    snowfall: string;
+    temperature_2m: string;
+    time: string;
+    uv_index: string;
+    uv_index_clear_sky: string;
+    windgusts_10m: string;
+}
