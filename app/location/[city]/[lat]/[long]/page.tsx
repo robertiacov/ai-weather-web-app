@@ -3,6 +3,7 @@ import { getClient } from '@/apollo-client'
 import fetchWeatherQuery from '@/graphql/queries/fetchWeatherQueries';
 import CalloutCard from '@/components/CalloutCard';
 import StatCard from '@/components/StatCard';
+import InformationPanel from '@/components/InformationPanel';
 
 type Props = {
     params: {
@@ -30,11 +31,16 @@ async function WeatherPage({params: {city, lat, long}}: Props) {
     console.log(results);
 
   return (
-    <div>
-        {/* <InformationPanel /> */}
+    <div className='flex flex-col min-h-screen md:flex-row'>
+        <InformationPanel 
+        city={city}
+        lat={lat}
+        long={long}
+        results={results} 
+        />
 
 
-        <div>
+        <div className='flex-1 p-5 lg:p-10'>
             <div className='p-5'>
                 <div className='pb-5'>
                     <h2 className='text-xl font-bold'>Todays Overview</h2>
@@ -52,12 +58,12 @@ async function WeatherPage({params: {city, lat, long}}: Props) {
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-5 m-2">
                 <StatCard 
                     title="Maximum Temperature"
-                    metric={`${results.daily.temperature_2m_max[0].toFixed(1)}°`}
+                    metric={`${results.daily.temperature_2m_max[0].toFixed(1)}°C`}
                     color="yellow"
                 />
                 <StatCard 
                     title="Minimum Temperature"
-                    metric={`${results.daily.temperature_2m_min[0].toFixed(1)}°`}
+                    metric={`${results.daily.temperature_2m_min[0].toFixed(1)}°C`}
                     color="green"
                 />
 
