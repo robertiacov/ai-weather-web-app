@@ -32,7 +32,7 @@ interface DailyUnits {
     weathercode: string;
 }
 
-interface Hourly{
+interface Hourly {
     apparent_temperature: [number];
     precipitation: [number];
     precipitation_probability: [number];
@@ -48,7 +48,7 @@ interface Hourly{
     windgusts_10m: [number];
 }
 
-interface HourlyUnits{
+interface HourlyUnits {
     apparent_temperature: string;
     precipitation: string;
     precipitation_probability: string;
@@ -62,4 +62,19 @@ interface HourlyUnits{
     uv_index: string;
     uv_index_clear_sky: string;
     windgusts_10m: string;
+}
+
+interface Root {
+    current_weather: CurrentWeather;
+    daily: Daily;
+    daily_units: DailyUnits;
+    elevation: number;
+    generationtime_ms: number;
+    hourly: Hourly;
+    hourly_units: HourlyUnits;
+    latitude: number;
+    longitude: number;
+    timezone: string;
+    timezone_abbreviation: string;
+    utc_offset_seconds: number;
 }
