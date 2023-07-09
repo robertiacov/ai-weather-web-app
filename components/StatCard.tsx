@@ -1,8 +1,20 @@
-import React from 'react'
+'use client'
 
-const StatCard = () => {
+import React from 'react'
+import { Card, Metric, Text, Color} from "@tremor/react"
+
+type Props = {
+    title: string;
+    metric: string,
+    color?: Color;
+};
+
+const StatCard = ({title, metric, color}: Props) => {
   return (
-    <div>StatCard</div>
+    <Card decoration="top" decorationColor={color}>
+        <Text>{title}</Text>
+        <Metric>{metric}</Metric>
+    </Card>
   )
 }
 
