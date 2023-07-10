@@ -1,4 +1,4 @@
-const CleanData = (data: Root, city: string) => {
+const cleanData = (data: Root, city: string) => {
     const {
         current_weather,
         timezone,
