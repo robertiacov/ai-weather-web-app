@@ -9,7 +9,7 @@ export default function Home() {
       <Card className="max-w-4xl mx-auto bg-white rounded-lg">
         <Text className="text-6xl font-bold text-center mb-10">Weather AI APP</Text>
         <Subtitle className="text-xl text-center">
-          Powerd by OpenAI, Next.js, Tailwind, Tremor
+          Get your daily weather informations presented by AI
         </Subtitle>
 
         <Divider className="my-10"/>
