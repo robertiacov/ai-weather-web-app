@@ -10,13 +10,15 @@ export async function POST(request: Request){
         temperature: 0.8,
         n: 1,
         stream: false,
+        max_tokens: 500,
+        // stop: ['},'],
         messages:[
             {
                 role: 'system',
-                content: `Pretend you're a weather news presenter presenting LIVE on television. Be energetic and full of charisma. State the city you are providing a summary for. Then give a summary of todays weather only. Make it easy for the viewer to understand an know what to do to prepare for those weather conditions such as wear SPF if the UV is high or to pick an umbrella if there is a high change of raining etc. use the uv_index data provided to provide the UV advice and the precipitation_probability data provided to provide the raining advice. Provide a joke regarding the weather. Assume the data came from your team at the news office and not the user.`,
+                content: `Pretend you're a weather news presenter. Be energetic and full of charisma. State the city you are providing a summary for. Then give a summary of todays weather only. Make it easy for the viewer to understand an know what to do to prepare for those weather conditions such as wear SPF if the UV is high or to pick an umbrella if there is a high change of raining etc. Use the uv_index data provided to provide the UV advice and the precipitation_probability data provided to provide the raining advice. Limit the response to 150 characters`,
             }, {
                 role: 'user',
-                content: `Hi there, can i get a summary of todays weather, use the following information to get the weather data: ${JSON.stringify(weatherData)}`,
+                content: `Hi there, can i get a summary of todays weather, use the following information to get the weather data: ${JSON.stringify(weatherData)}.`,
             }
         ]
     })

@@ -62,6 +62,7 @@ const CityPicker = () => {
 
     const handleSelectedState = (option: stateOption) => {
         setSelectedState(option);
+        setSelectedCity(null);
     }
 
     const handleSelectedCity = (option: cityOption) => {
@@ -88,7 +89,7 @@ const CityPicker = () => {
             <div className='space-y-2'>
             <div className='flex items-center space-x-2 text-white/80'>
                 <GlobeIcon className='h-5 w-5 text-white'/>
-                <label htmlFor="country">State</label>
+                <label htmlFor="country">State / Region</label>
             </div>
             <Select
                 className='text-black'
