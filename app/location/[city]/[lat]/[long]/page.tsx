@@ -1,4 +1,3 @@
-"use client"
 import React from 'react'
 import { getClient } from '@/apollo-client'
 import fetchWeatherQuery from '@/graphql/queries/fetchWeatherQueries';
